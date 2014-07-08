@@ -7,7 +7,7 @@
  * @icon bar-chart-o
  * @mini bar-chart-o
  * @see cronos
- * @link analytics
+ * @link vitals
  * @todo
  * @delta true
  */

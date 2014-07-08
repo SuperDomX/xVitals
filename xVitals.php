@@ -1,6 +1,6 @@
 <?php 
 /**
- * @name Analytics
+ * @name Vitals
  * @desc Truely indepth information about your website; Statistically.
  * @version v1.1.0
  * @author cdpollard@gmail.com
@@ -12,7 +12,7 @@
  * @delta true
  */
 
-	class xAnalytics extends Xengine{
+	class xVitals extends Xengine{
 		
 		function dbSync(){
 			return array(

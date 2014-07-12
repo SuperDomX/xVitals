@@ -13,7 +13,8 @@
  */
 
 	class xVitals extends Xengine{
-		
+		var $class_name = 'xVitals';
+
 		function dbSync(){
 			return array(
 				'page_visits' 	=> array(),
@@ -194,14 +195,16 @@
 		*/
 		function hitCount($count=1){
 			if($count){
-				$counter = $this->_CFG['dir']['Xtra'].'/xAnalytics/counter';
+ 				$f = $this->_CFG['dir']['cfg'].'/count.'.$_SERVER['SERVER_NAME'].'.hits';
 				# Hit Counter...
-				$count = file_get_contents($counter);
+				if(!file_exists($f)){
+					$count = 0;
+					file_put_contents($f,$count);
+				}
+				$count = file_get_contents($f);
 				$count++;
-				file_put_contents($counter,$count);
+				file_put_contents($f,$count);
 				$this->set('LOAD_COUNTER',$count);	
-			}else{
-
 			}
 		}
 		

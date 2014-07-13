@@ -65,7 +65,7 @@
             </div> -->
         </div>
 
-        {include file="~widgets/visits.html"} 
+        {include file="~widgets/visits.tpl"} 
         
 
 

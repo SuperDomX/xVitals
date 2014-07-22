@@ -32,7 +32,10 @@
 		
 		function autoRun($X){
 			//$this->doSessionTime();			# SessionTime for Everyone...
-			$this->hitCount();				# How many times the website has loaded for other users.
+			if(!$X->atBackDoor){
+				$this->hitCount();
+			}
+						# How many times the website has loaded for other users.
 			
 			if(!$this->atBackDoor && !$this->atSideDoor){ 			# Dont track the admin panel or admins - at least not here.
 				$this->incPageLanding();	### Track the page landing.	
@@ -61,6 +64,7 @@
 				$this->set('site_stats',$stats);
 			}			
 
+			$this->set('HTTP_HOST_TOTAL_HITS', $this->getTotalHits() );
 
 			if($X->Key['is']['user'])
 				$this->doUniqueHit();		### Do Unique Hit
@@ -94,7 +98,8 @@
 		public function getTotalHits()
 		{
 			# Hit Counter...
-			return file_get_contents($this->_CFG['dir']['Xtra'].'/xAnalytics/counter');
+			$c = $this->_CFG['dir']['cfg'].'/count.'.$_SERVER['SERVER_NAME'].'.hits'; 
+			return file_get_contents($c);
 		}
 
 		

@@ -63,6 +63,18 @@
 				$this->set('SVR',$_SERVER);
 				// $stats = $X->statistics();
 				$this->set('site_stats',$stats);
+ 	
+
+
+				$this->set('total_used_space', 
+					( isset($_SESSION['tmp']['disk_space']) ) 
+					? 
+						$this->getTotalSpaceSize()
+					: 
+						$this->getTotalSpaceSize()
+					);
+
+
 			}			
 
 			$this->set('HTTP_HOST_TOTAL_HITS', $this->getTotalHits() );
@@ -103,7 +115,70 @@
 			return file_get_contents($c);
 		}
 
+		public function getTotalSpaceSize( )
+		{
+			$mount = CFG_DIR.'/'.$_SERVER['HTTP_HOST'];
+
+			if(!is_dir($mount)){
+				mkdir($mount);
+			}
+
+			function foldersize($path) {
+			    $total_size = 0;
+			    $files = scandir($path);
+			    $cleanPath = rtrim($path, '/'). '/';
+
+			    foreach($files as $t) {
+			        if ($t<>"." && $t<>"..") {
+			            $currentFile = $cleanPath . $t;
+			            if (is_dir($currentFile)) {
+			                $size = foldersize($currentFile);
+			                $total_size += $size;
+			            }
+			            else {
+			                $size = filesize($currentFile);
+			                $total_size += $size;
+			            }
+			        }   
+			    }
+
+			    return $total_size;
+			}
+
+
+			function format_size($size) {
+			    
+				$units = explode(' ', 'B KB MB GB TB PB');
+			    $mod = 1024;
+
+			    for ($i = 0; $size > $mod; $i++) {
+			        $size /= $mod;
+			    }
+
+			    $endIndex = strpos($size, ".")+3;
+
+			    return substr( $size, 0, $endIndex).' '.$units[$i];
+			}
+
+
+		    $SIZE_LIMIT = 5368709120; // 5 GB
+		    $disk_used = foldersize($mount);
+
+		    $disk_remaining = $SIZE_LIMIT - $disk_used;
+
+		    $size = $_SESSION['tmp']['space_size'] = array(
+		    	'used' => format_size($disk_used),
+		    	'left' => format_size($disk_remaining),
+		    	'limit' => format_size($SIZE_LIMIT)
+		    );
+
+			
+
+		    return $size;
+		}
 		
+		
+
 		function leaveBreadCrumb($X){
 			$_SESSION['crumbs'][] = array(
 				'request_uri' => $_SERVER['REQUEST_URI'],

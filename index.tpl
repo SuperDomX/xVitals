@@ -1,4 +1,4 @@
-         
+        
         <div class="row">
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <div class="box">
@@ -64,7 +64,7 @@
                 </div>
             </div> -->
         </div>
-
+{include file="~widgets/billboard.tpl"}       
         {include file="~widgets/visits.tpl"} 
         
 

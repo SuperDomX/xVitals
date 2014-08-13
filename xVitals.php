@@ -2,7 +2,7 @@
 /**
  * @name Vitals
  * @desc Truely indepth information about your website; Statistically.
- * @version v1.1.0
+ * @version v1.1.1
  * @author cdpollard@gmail.com
  * @icon bar-chart-o
  * @mini bar-chart-o

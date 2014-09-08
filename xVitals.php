@@ -2,7 +2,7 @@
 /**
  * @name Vitals
  * @desc Truely indepth information about your website; Statistically.
- * @version v1.1.1
+ * @version v1.1.2
  * @author cdpollard@gmail.com
  * @icon bar-chart-o
  * @mini bar-chart-o
@@ -37,7 +37,7 @@
 			}
 						# How many times the website has loaded for other users.
 			
-			if(!$this->atBackDoor && !$this->atSideDoor){ 			# Dont track the admin panel or admins - at least not here.
+			if(!$this->atBackDoor){ 			# Dont track the admin panel or admins - at least not here.
 				
 				$this->incPageLanding();	### Track the page landing.	
 				if($X->Xtra == 'index'){

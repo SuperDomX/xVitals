@@ -6,7 +6,7 @@
  * @author cdpollard@gmail.com
  * @icon bar-chart-o
  * @mini bar-chart-o
- * @see cronos
+ * @see radius
  * @link vitals
  * @todo
  * @delta true

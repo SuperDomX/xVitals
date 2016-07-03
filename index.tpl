@@ -89,16 +89,12 @@
                 </div>
                 <script type="text/javascript">
                     window.updateNexusServer = function (t) {
-                        
                         // body...
                         var t = $(t);
                         t.toggleClass('btn-success');
                         t.toggleClass('btn-danger');
                         var html = t.html();
-
-
                         t.html('<i class="fa fa-refresh fa-spin"></i> Saving...');
-
                         $.ajax({
                             type     : "POST",
                             url      : "/.json",
@@ -117,8 +113,6 @@
                                     t.toggleClass('btn-success');
                             }
                         });
-
-
                     }
                 </script>
         </div>

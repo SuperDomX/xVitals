@@ -1,11 +1,11 @@
-<?php 
+<?php
 /**
- * @name Vitals
+ * @name Visitors
  * @desc Truely indepth information about your website; Statistically.
  * @version v1.1.2
  * @author cdpollard@gmail.com
  * @icon bar-chart-o
- * @mini bar-chart-o
+ * @mini globe
  * @see radius
  * @link vitals
  * @todo

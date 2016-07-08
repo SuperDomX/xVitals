@@ -350,10 +350,26 @@
             </div>
         </div>
     </div>
-    
+    {$js = "/x/html/layout/watchtower/js"}
+    <!-- page libs -->
+    <script src="{$js}/nvd3-custom-lb1.0/lib/d3.v2.min.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/nv.d3.custom.js"></script>
+
+    <!-- nvd3 models -->
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/scatter.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/axis.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/legend.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/stackedArea.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/stackedAreaChart.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/line.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/pie.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/pieChartTotal.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/stream_layers.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/lineChart.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/multiBar.js"></script>
+    <script src="{$js}/nvd3-custom-lb1.0/src/models/multiBarChart.js"></script>
 
     <script src="/x/html/layout/watchtower/js/index.js"></script>
 
     <!-- page specific -->
     <script src="/x/html/layout/watchtower/js/stats.js"></script>
- 

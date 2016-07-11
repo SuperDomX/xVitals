@@ -1,122 +1,87 @@
-        
-        <div class="row">
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-desktop"></i>
-                    </div>
-                    <div class="description">
-                        <strong>{$PAGE_VIEWS}</strong> page views
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="box">
-                    <div class="big-text">
-                       {$AVG_TIME} <i class="fa fa-clock-o fa-spin"></i> 
-                        
-                    </div> 
-                    <div class="description"> 
-                        Average Minutes
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-user"></i>
-                    </div>
-                    <div class="description">
-                        <strong>{$NUM_ONLINE}</strong> Online
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="box">
-                    <div class="big-text"> 
-                         +{$UNIQUE_HITS} <i class="fa fa-smile-o"></i>
-                    </div>
-                    <div class="description">
-                        Unique Hits
-                    </div>
-                </div>
-            </div>
-           <!--  <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="box">
-                    <div class="icon">
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                    <div class="description">
-                        <strong>410</strong> orders
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="box">
-                    <div class="big-text">
-                        6.42%
-                    </div>
-                    <div class="description">
-                        <i class="fa fa-arrow-right"></i>
-                        Traffic Growth
-                    </div>
-                </div>
-            </div> -->
-        </div>
-        {include file="~widgets/billboard.tpl"}       
-        {include file="~widgets/visits.tpl"} 
-        
-
-
-        <div class="row">
-        <div class="col-md-12">
-           <div class="input-group">
-                    <span class="input-group-btn">
-                        <a href="https://dashboard.stripe.com/account/apikeys" target="_blank" class="btn btn-info" type="button">
-                           Google Analytics ID
-                        </a>
-                    </span>
-                    <input id="google_analytics_id" type="text"
-                           data-trigger="change" required="required"
-                           class="form-control"
-                           name="nexus[google_analytics_id]" value="{if $google_analytics_id}{$google_analytics_id}{else}{/if}">
-                    <span class="input-group-btn">
-                        <button class="btn btn-success" type="button" onclick="window.updateNexusServer(this);">
-                             <i class="fa fa-key"></i> Save Key
-                        </button>
-                    </span>
-                </div>
-                <script type="text/javascript">
-                    window.updateNexusServer = function (t) {
-                        // body...
-                        var t = $(t);
-                        t.toggleClass('btn-success');
-                        t.toggleClass('btn-danger');
-                        var html = t.html();
-                        t.html('<i class="fa fa-refresh fa-spin"></i> Saving...');
-                        $.ajax({
-                            type     : "POST",
-                            url      : "/.json",
-                            data     : {
-                                config : {
-                                    google_analytics_id : $('#google_analytics_id').val()
-                                }
-                            },
-                            dataType : "json",
-                            success: function(data)
-                            {
-                              // Handle the server response (display errors if necessary)
-                                if(data.success)
-                                    t.html(html);
-                                    t.toggleClass('btn-danger');
-                                    t.toggleClass('btn-success');
-                            }
-                        });
-                    }
-                </script>
-        </div>
+{include file="~widgets/billboard.tpl"}       
+  <div class="row">
+    <div class="col-md-9">
+      {include file="~widgets/visits.tpl"} 
     </div>
+    <div class="col-md-3">
+      <section class="widget">
+          <div class="list-group">
+              <a href="#" class="list-group-item">
+                  <i class="fa fa-chevron-right pull-right"></i>
+                  <span class="badge badge-success">
+                   {$PAGE_VIEWS} 
+                  </span>
+                  <i class="fa fa-desktop"></i>
+                  Page Views
+              </a>
+              <a href="#" class="list-group-item">
+                  <i class="fa fa-chevron-right pull-right"></i>
+                  <span class="badge badge-danger">
+                    {$AVG_TIME}
+                  </span>
+                  <i class="fa fa-clock-o fa-spin"></i> 
+                  Average Minutes
+              </a>
+              <a href="#" class="list-group-item">
+                  <i class="fa fa-chevron-right pull-right"></i>
+                  <span class="badge badge-default">
+                    {$NUM_ONLINE}
+                  </span>
+                  <i class="fa fa-user"></i>
+                  Online
+              </a>
+              <a href="#" class="list-group-item">
+                  <i class="fa fa-chevron-right pull-right"></i>
+                  <span class="badge badge-info">
+                    {$UNIQUE_HITS} 
+                  </span>
+                  <i class="fa fa-smile-o"></i>
+                  Unique Hits
+              </a>
+              <a href="#" class="list-group-item">
+                  <i class="fa fa-chevron-right pull-right"></i>
+                  <!-- <span class="badge badge-warning">7</span> -->
+                  <i class="fa fa-plus"></i>&nbsp;
+                  Another Stat.
+              </a>
+              <a href="#" class="list-group-item">
+                  <i class="fa fa-chevron-right pull-right"></i>
+                  <!-- <span class="badge badge-warning">7</span> -->
+                  <i class="fa fa-plus"></i>&nbsp;
+                  Customize this panel...
+              </a>
+          </div>
+      </section>
+    </div>
+  </div>
+  <div class="row">
+
+      <!--  <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="box">
+              <div class="icon">
+                  <i class="fa fa-shopping-cart"></i>
+              </div>
+              <div class="description">
+                  <strong>410</strong> orders
+              </div>
+          </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="box">
+              <div class="big-text">
+                  6.42%
+              </div>
+              <div class="description">
+                  <i class="fa fa-arrow-right"></i>
+                  Traffic Growth
+              </div>
+          </div>
+      </div> -->
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+  </div>
     <div class="row">
         <div class="col-md-3 col-sm-6">
             <section class="widget large">

@@ -2,8 +2,8 @@
 /**
  * @name Visitors
  * @desc Truely indepth information about your website; Statistically.
- * @version v1.1.2
- * @author cdpollard@gmail.com
+    * @version v0.1(160710)
+    * @author  @xopherdeep
  * @icon bar-chart-o
  * @mini globe
  * @see clicks
